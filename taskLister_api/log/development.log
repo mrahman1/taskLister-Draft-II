@@ -603,3 +603,23 @@ Processing by ListsController#show as HTML
 Completed 200 OK in 21ms (Views: 11.8ms | ActiveRecord: 0.8ms)
 
 
+Started GET "/lists" for 127.0.0.1 at 2017-11-29 15:56:11 -0500
+Processing by ListsController#index as */*
+  [1m[36mList Load (2.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+Completed 200 OK in 29ms (Views: 18.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/lists" for 127.0.0.1 at 2017-11-29 15:58:42 -0500
+Processing by ListsController#index as */*
+  [1m[36mList Load (1.4ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+Completed 200 OK in 24ms (Views: 17.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/lists/2" for 127.0.0.1 at 2017-11-29 15:58:43 -0500
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."list_id" = ?[0m  [["list_id", 2]]
+Completed 200 OK in 15ms (Views: 10.5ms | ActiveRecord: 0.7ms)
+
+
