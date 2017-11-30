@@ -18,14 +18,12 @@ class ListsController < ApplicationController
   # end
 
   def create
-    # byebug;
-    list = List.new(lists_params)
-    if (list.save)
-      # byebug;
-      render json: list
+    new_list = List.new(lists_params)
+    if (new_list.save)
+      response = {list_info: new_list, tasks:new_list.tasks}
+      render json: response
     else
       render json: list.errors
-      # byebug;
     end
 
   end
@@ -37,7 +35,6 @@ class ListsController < ApplicationController
   # end
 
   def lists_params
-
     params.require(:list).permit(:name)
 
   end
