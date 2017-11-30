@@ -72,18 +72,44 @@ function showList(json){
 
 }
 
-function createList(form){
-   debugger;
-  fetch ('http://localhost:3000/lists',{method: "POST", body: JSON.stringify(list)})
-  .then(res => res.json()).then(json => showList(json))
+function createList(){
+  // fetch('http://localhost:3000/lists', {
+  //     method: "post",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       list: {
+  //         name: document.getElementsByClassName('new-form-input')[0].value
+  //       }
+  let body = formToJson(document.getElementById('createList'))
+  fetch ('http://localhost:3000/lists',{
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({list: body})})
+  .then(res => res.json()).then(console.log)
 }
 
 function createNewList(){
 
   let newForm = document.createElement('FORM')
+  newForm.id = "createList"
   let name = `<label><input type="text" name="name"></label>
-        <input type="submit" onclick="createList(newForm)">`
+        <input type="submit" onclick="createList()">`
   let list = document.getElementById("List")
   newForm.innerHTML = name
   list.appendChild(newForm)
+}
+
+function formToJson(form){
+  let formElements = form.elements
+  let body={}
+  for(let i = 0; i < formElements.length; i++){
+    if (formElements[i].name !== ""){
+     body[formElements[i].name]= formElements[i].value;
+   }
+  }
+  return body;
 }

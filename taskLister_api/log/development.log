@@ -1349,3 +1349,226 @@ Processing by ListsController#index as */*
 Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 1.8ms)
 
 
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "building api"], ["created_at", "2017-11-29 23:50:51.581392"], ["updated_at", "2017-11-29 23:50:51.581392"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Weekend Plans"], ["created_at", "2017-11-29 23:50:51.585059"], ["updated_at", "2017-11-29 23:50:51.585059"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "api writing"], ["list_id", 4], ["created_at", "2017-11-29 23:50:51.608076"], ["updated_at", "2017-11-29 23:50:51.608076"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "groceries"], ["list_id", 4], ["created_at", "2017-11-29 23:50:51.611523"], ["updated_at", "2017-11-29 23:50:51.611523"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "shopping"], ["list_id", 5], ["created_at", "2017-11-29 23:50:51.614611"], ["updated_at", "2017-11-29 23:50:51.614611"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "tasks" ("name", "list_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "kids"], ["list_id", 5], ["created_at", "2017-11-29 23:50:51.617514"], ["updated_at", "2017-11-29 23:50:51.617514"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/lists" for 127.0.0.1 at 2017-11-29 19:15:34 -0500
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#index as */*
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+Completed 200 OK in 12ms (Views: 6.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/lists/1" for 127.0.0.1 at 2017-11-29 19:15:38 -0500
+Processing by ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.4ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."list_id" = ?[0m  [["list_id", 1]]
+Completed 200 OK in 43ms (Views: 17.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-11-29 19:19:19 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cunha/.rvm/gems/ruby-2.3.3/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cunha/.rvm/gems/ruby-2.3.3/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (3.2ms)
+Completed 200 OK in 10ms (Views: 7.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-11-29 19:19:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/lists" for 127.0.0.1 at 2017-11-29 19:19:24 -0500
+Processing by ListsController#index as HTML
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists" for 127.0.0.1 at 2017-11-29 20:57:56 -0500
+Processing by ListsController#index as */*
+  [1m[36mList Load (0.2ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists/1" for 127.0.0.1 at 2017-11-29 20:57:59 -0500
+Processing by ListsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mList Load (0.9ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."list_id" = ?[0m  [["list_id", 1]]
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/lists" for 127.0.0.1 at 2017-11-29 21:00:30 -0500
+Processing by ListsController#index as */*
+  [1m[36mList Load (0.6ms)[0m  [1m[34mSELECT "lists".* FROM "lists"[0m
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:13:42 -0500
+Processing by ListsController#create as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:15:43 -0500
+Processing by ListsController#create as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:16:47 -0500
+Processing by ListsController#create as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started OPTIONS "/lists" for 127.0.0.1 at 2017-11-29 21:30:56 -0500
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:30:56 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:34:01 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Completed 500 Internal Server Error in 31ms
+
+
+  
+NoMethodError (undefined method `List' for #<ListsController:0x007fa57655bb30>):
+  
+app/controllers/lists_controller.rb:21:in `create'
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:36:56 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Completed 500 Internal Server Error in 36ms
+
+
+  
+NoMethodError (undefined method `List' for #<ListsController:0x007fa575ec2c88>):
+  
+app/controllers/lists_controller.rb:21:in `create'
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:37:29 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:37:58 -0500
+Completed 500 Internal Server Error in 168933ms
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/lists_controller.rb:22:in `create'
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Started OPTIONS "/lists" for 127.0.0.1 at 2017-11-29 21:42:26 -0500
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:42:27 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Completed 500 Internal Server Error in 267345ms (ActiveRecord: 1.6ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/lists_controller.rb:22:in `create'
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:47:05 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+Completed 500 Internal Server Error in 14800ms
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/lists_controller.rb:22:in `create'
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:47:50 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fabiano Cunha"], ["created_at", "2017-11-30 02:47:51.170399"], ["updated_at", "2017-11-30 02:47:51.170399"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:49:02 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fabiano Cunha"], ["created_at", "2017-11-30 02:49:12.633417"], ["updated_at", "2017-11-30 02:49:12.633417"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fabiano Cunha"], ["created_at", "2017-11-30 02:50:02.756057"], ["updated_at", "2017-11-30 02:50:02.756057"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mList Load (0.5ms)[0m  [1m[34mSELECT  "lists".* FROM "lists" LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:51:55 -0500
+Completed 500 Internal Server Error in 163219ms (ActiveRecord: 6.1ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `create'
+app/controllers/lists_controller.rb:25:in `create'
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+  [1m[35m (2.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fabiano Cunha"], ["created_at", "2017-11-30 02:51:57.022065"], ["updated_at", "2017-11-30 02:51:57.022065"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 108ms (Views: 3.2ms | ActiveRecord: 15.4ms)
+
+
+Started OPTIONS "/lists" for 127.0.0.1 at 2017-11-29 21:53:15 -0500
+Started POST "/lists" for 127.0.0.1 at 2017-11-29 21:53:15 -0500
+Processing by ListsController#create as */*
+  Parameters: {"list"=>{"name"=>"Fabiano Cunha"}}
+  [1m[35m (2.7ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "lists" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Fabiano Cunha"], ["created_at", "2017-11-30 02:53:15.969466"], ["updated_at", "2017-11-30 02:53:15.969466"]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 200 OK in 119ms (Views: 8.1ms | ActiveRecord: 16.6ms)
+
+
